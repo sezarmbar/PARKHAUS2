@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
 
 import { AgmCoreModule } from '@agm/core';
-import {MdButtonModule,MdInputModule, MdCheckboxModule,MdSidenavModule,MdMenuModule,MdChipsModule,MdProgressBarModule,MdTabsModule} from '@angular/material';
+import {MdButtonModule,MdInputModule, MdCheckboxModule,MdSidenavModule,MdMenuModule,MdChipsModule,MdProgressBarModule,MdTabsModule,MdIconModule} from '@angular/material';
 
 
 // service
@@ -21,6 +21,7 @@ import { ParkTablePipe } from './pages/haus-park/pipe';
 import { SliderComponent } from './share/slider';
 import { HomeComponent , DialogContent } from './pages/home';
 import { HausTableComponent , HausParkComponent , HausMapComponent , DirectionsMapDirective , SideMapComponent , JsonPolyLineDirective} from './pages/haus-park';
+import { SlidScrolTestComponent } from './slid-scrol-test/slid-scrol-test.component';
 
 
 
@@ -35,14 +36,15 @@ import { HausTableComponent , HausParkComponent , HausMapComponent , DirectionsM
     DirectionsMapDirective,
     SideMapComponent,
     JsonPolyLineDirective,
-    HausTableComponent
+    HausTableComponent,
+    SlidScrolTestComponent
   ],
   imports: [
    BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MdButtonModule, MdCheckboxModule,MdSidenavModule,MdChipsModule,MdInputModule,MdProgressBarModule,MdMenuModule,MdTabsModule,
+    MdButtonModule, MdCheckboxModule,MdSidenavModule,MdChipsModule,MdInputModule,MdProgressBarModule,MdMenuModule,MdTabsModule,MdIconModule,
     ServiceAppRoutingModule,
     ParkTablePipe,
     serivceModul,

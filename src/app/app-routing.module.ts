@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home';
 import { HausParkComponent, HausMapComponent, HausTableComponent } from './pages/haus-park';
+import {SlidScrolTestComponent} from './slid-scrol-test/slid-scrol-test.component';
 
 
 
@@ -12,6 +13,7 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'hauspark', component: HausTableComponent},
     {path: 'hausmap', component: HausMapComponent},
+    {path: 'test', component: SlidScrolTestComponent},
     {path: '**', redirectTo: 'hauspark', pathMatch: 'full'}
 ];
 

@@ -37,9 +37,10 @@
 }
 
 // @media (min-width: 961px) {
-  .app-layout{
-    // height: calc(100vh - 64px);
+  .app-haus-map-layout{
+    height: calc(100vh - 60px);
   }
+
   .sideEnd-layout{
     height: calc(100vh - 90px);
   }
@@ -66,7 +67,7 @@
 // }
 
 .adp{
-    width: 303px !important;
+    width: 314px !important;
 }
 .sebm-google-map-map {
 // height: 100vh !important;
