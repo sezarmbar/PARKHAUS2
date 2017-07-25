@@ -19,6 +19,7 @@ export class HausMapComponent implements OnInit {
   @ViewChild('sidenavEnd') sidenavEnd: MdSidenav;
   @ViewChild(DirectionsMapDirective) directionRender;
   @ViewChild('planRoutMap') elPlanRout: ElementRef;
+  public showLeftSide:boolean = false;
   public tmp = '((53.12817645691219, 8.180056798706119), (53.16266808904921, 8.26743243957526))';
   public showside: boolean = false;
   public title: string = 'oldenburg';
@@ -27,7 +28,7 @@ export class HausMapComponent implements OnInit {
   public destenyInput = '';
   public parkhauseAddreses = ADDRESES;
   public destination = { lat: 0.0, lng: 0.0 };
-  public autoPosition: any;
+  public autoPosition={ lat: null, lng: null };
   public btnSideNave: string = 'chevron_right';
   public opened: boolean = false;
   public btnSideNaveEnd: string = 'chevron_left';
@@ -93,16 +94,16 @@ export class HausMapComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.getParksFBehinderte();
-    this.getFreiParkPlatz();
-    this.getParkPlatz();
-    this.getParkHause();
-    this.getStrassensperrung();
-    this.getGrosseUmleitungen();
+    // this.getParksFBehinderte();
+    // this.getFreiParkPlatz();
+    // this.getParkPlatz();
+    // this.getParkHause();
+    // this.getStrassensperrung();
+    // this.getGrosseUmleitungen();
     this.destenyInput = this.addresService.parkhausname;
     this.serchAddres();
     this.setMaker();
-    console.log(this.tmp.replace(/([. *+?^=!:${}()|\[\]\/\\])/g, ''));
+    // console.log(this.tmp.replace(/([. *+?^=!:${}()|\[\]\/\\])/g, ''));
     // var audio = new Audio('assets/audio01.mp3');
     // audio.play();
   }
@@ -115,6 +116,8 @@ export class HausMapComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((location) => {
         this.autoPosition = { lat: location.coords.latitude, lng: location.coords.longitude };
+        if(location.coords.latitude == null || location.coords.latitude == undefined)
+          alert("Kein GPS Signal");
         this.addresService.setAutoPosition(this.autoPosition);
       });
     }
@@ -176,6 +179,7 @@ export class HausMapComponent implements OnInit {
       },
         err => {
           if (err.code === 1) {
+            alert("Kein GPS Signal")
             console.log('Error: Access is denied!');
           } else if (err.code === 2) {
             console.log('Error: Position is unavailable!');

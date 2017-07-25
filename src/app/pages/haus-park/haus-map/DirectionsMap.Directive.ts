@@ -14,34 +14,22 @@ export class DirectionsMapDirective {
   @Input() elPlanRout:any;
   public oriLat: number ;
   public oriLng: number ;
-  public currentPosition: any;
+  public currentPosition={lat: 0 ,lng: 0};
   public travelMode = 'DRIVING';
   public icons:any;
   public map:any;
   public prevInfoWindows:any = false;
   public markerArray = [];
+
+  
   constructor (private gmapsApi: GoogleMapsAPIWrapper, private mapsAPILoader:MapsAPILoader) {
     this.mapsAPILoader.load().then(() => {
       this.icons = {
             start: new google.maps.MarkerImage(
-            // URL
-            'assets/start.png',
-            // (width,height)
-            // new google.maps.Size( 44, 44 ),
-            // The origin point (x,y)
-            // new google.maps.Point( 0, 0 ),
-            // The anchor point (x,y)
-            // new google.maps.Point( 0, 0 )
+            'assets/start.png'
             ),
             end: new google.maps.MarkerImage(
-            // URL
-            'assets/end.png',
-            // (width,height)
-            // new google.maps.Size( 44, 44 ),
-            // The origin point (x,y)
-            // new google.maps.Point( 0, 0 ),
-            // The anchor point (x,y)
-            // new google.maps.Point( 0, 0 )
+            'assets/end.png'
       )};
     });
   }
@@ -50,9 +38,6 @@ export class DirectionsMapDirective {
   }
 
   currentlocationFind(){
-    if (!navigator.geolocation) {
-        console.log('<p>Geolocation is not supported by your browser</p>');
-      }
      if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
               (location) => {
@@ -60,11 +45,43 @@ export class DirectionsMapDirective {
               if(!(this.destination.lat === 0 || this.destination.lat === undefined)) {
                 this.renderDirection();
               }
-            });
+            },
+        err => {
+          if (err.code === 1) {
+            alert("Kein GPS Signal")
+            console.log('Error: Access is denied!');
+          } else if (err.code === 2) {
+            console.log('Error: Position is unavailable!');
+          }
+        });
         }
    }
+
+   
+  // setMaker() {
+  //   let me = this;
+  //   if (navigator.geolocation) {
+  //     // timeout at 20000 milliseconds (20 seconds)
+  //     const options = { timeout: 20000, enableHighAccuracy: true, maximumAge: 0 };
+  //     this.watchID = navigator.geolocation.watchPosition(position => {
+  //       me.markerPos.lat = position.coords.latitude;
+  //       me.markerPos.lng = position.coords.longitude;
+  //     },
+  //       err => {
+  //         if (err.code === 1) {
+  //           alert("Kein GPS Signal")
+  //           console.log('Error: Access is denied!');
+  //         } else if (err.code === 2) {
+  //           console.log('Error: Position is unavailable!');
+  //         }
+  //       }
+  //       , options);
+  //   } else {
+  //     console.log('Sorry, browser does not support geolocation!');
+  //   }
+  // }
     renderDirection(travelMode ?){
-      if(!(this.destination.lat === 0 || this.destination.lat === undefined || this.currentPosition.lat === undefined)) {
+      if(!(this.destination.lat === 0 || this.destination.lat === undefined || this.currentPosition.lat === 0)) {
       if (!(travelMode === undefined)) { this.travelMode = travelMode;
       }else { this.travelMode = 'DRIVING'; }
       for (let i = 0 ; i < this.markerArray.length; i++ ) {

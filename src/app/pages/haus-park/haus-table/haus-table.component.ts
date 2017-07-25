@@ -58,7 +58,6 @@ export class HausTableComponent implements OnInit {
   }
   mapShow() {
     this.sideMap.serchAddres(this.currentParkName)
-    console.log("mapshoe")
   }
   showPark(park) {
     this.addresService.setParkHausName(park.Name);
@@ -68,7 +67,6 @@ export class HausTableComponent implements OnInit {
   }
   onSelectChange = (event: any): void => {
     if (event.index === 0) {
-      console.log(event.index)
       this.slideInit = true;
     } else {
       this.slideInit = true;

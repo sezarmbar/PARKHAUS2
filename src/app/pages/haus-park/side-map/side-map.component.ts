@@ -54,8 +54,6 @@ export class SideMapComponent implements OnInit {
   }
   
   ngOnInit() {
-  console.log("commponennt init")
-    
     this.sideelPlanRout = this.elPlanRout;
     this.currentlocationFind();
   }

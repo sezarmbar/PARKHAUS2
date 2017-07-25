@@ -1,3 +1,3 @@
-ng build --prod --aot
+ng build --prod --aot --output-hashing
 cd dist 
 http-server

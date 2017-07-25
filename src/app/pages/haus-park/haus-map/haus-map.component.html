@@ -17,7 +17,7 @@
         </div>
         <div id="right-panel" class="flexcroll" #planRoutMap></div>
     </md-sidenav>
-    <md-sidenav mode="side" #sidenavEnd align="end">
+    <md-sidenav mode="side" #sidenavEnd align="end" *ngIf="showLeftSide">
         <div class="sideEnd-layout" align='center' (swiperight)="closeOpenSidenaveEnd()">
             <h1>
                 Oldenburg
@@ -62,7 +62,7 @@
     <button md-mini-fab class="btnOpen" (click)="closeOpenSidenave()" *ngIf="!opened">
         <md-icon>{{btnSideNave}}</md-icon>
     </button>
-    <button md-mini-fab class="btnOpenEnd" (click)="closeOpenSidenaveEnd()" *ngIf="!openedEnd">
+    <button md-mini-fab class="btnOpenEnd" (click)="closeOpenSidenaveEnd()"  *ngIf="openedEnd">
         <md-icon>{{btnSideNaveEnd}}</md-icon>
     </button>
     <!--Map-->
