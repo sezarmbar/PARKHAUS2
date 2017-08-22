@@ -12,9 +12,9 @@ declare var xml2json: any;
 
 @Injectable()
 export class ParkingsService implements OnInit {
-  markerUrl = 'http://gis4oldenburg.oldenburg.de/viewer/php/getmarker.php';
-  infoMarkerUrl = 'http://gis4oldenburg.oldenburg.de/viewer/php/ajax_control.php';
-  ajax_control = 'http://gis4oldenburg.oldenburg.de/viewer/php/ajax_control.php';
+  markerUrl = 'https://gis4oldenburg.oldenburg.de/viewer/php/getmarker.php';
+  infoMarkerUrl = 'https://gis4oldenburg.oldenburg.de/viewer/php/ajax_control.php';
+  ajax_control = 'https://gis4oldenburg.oldenburg.de/viewer/php/ajax_control.php';
 
   constructor(private http: Http) { }
   ngOnInit() { }
