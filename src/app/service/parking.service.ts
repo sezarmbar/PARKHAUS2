@@ -15,10 +15,7 @@ export class ParkingsService implements OnInit {
   markerUrl = 'http://gis4oldenburg.oldenburg.de/viewer/php/getmarker.php';
   infoMarkerUrl = 'http://gis4oldenburg.oldenburg.de/viewer/php/ajax_control.php';
   ajax_control = 'http://gis4oldenburg.oldenburg.de/viewer/php/ajax_control.php';
-  // url = "http://oldenburg-service.de/proxy-to-gis.php?url=http://gis4oldenburg.oldenburg.de/viewer/php/";
-  // markerUrl =this.url + 'getmarker.php';
-  // infoMarkerUrl =this.url+ 'ajax_control.php';
-  // ajax_control =this.url+ 'ajax_control.php';
+
   constructor(private http: Http) { }
   ngOnInit() { }
 

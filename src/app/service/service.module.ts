@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import {CommonModule} from "@angular/common";
+import { CommonModule } from '@angular/common';
 
-import { ParkingsService } from './parking.service';
-import { addresShared } from './addresShared.service';
+import { ParkingsService } from './';
+import { addresShared } from './';
 
 @NgModule({
-  declarations:[],
-  imports:[CommonModule],
-  exports:[],
-  providers:[ParkingsService, addresShared]
+  declarations: [],
+  imports: [CommonModule],
+  exports: [],
+  providers: [ParkingsService, addresShared]
 })
 
-export class serivceModul{}
+export class serivceModul { }

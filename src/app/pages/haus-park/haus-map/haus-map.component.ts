@@ -94,10 +94,10 @@ export class HausMapComponent implements OnInit {
     }
   }
   ngOnInit() {
-    // this.getParksFBehinderte();
-    // this.getFreiParkPlatz();
-    // this.getParkPlatz();
-    // this.getParkHause();
+    this.getParksFBehinderte();
+    this.getFreiParkPlatz();
+    this.getParkPlatz();
+    this.getParkHause();
     // this.getStrassensperrung();
     // this.getGrosseUmleitungen();
     this.destenyInput = this.addresService.parkhausname;
