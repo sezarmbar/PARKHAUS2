@@ -1,6 +1,4 @@
-import {Pipe,PipeTransform} from "@angular/core";
-
-
+import {Pipe, PipeTransform} from "@angular/core";
 
 @Pipe({
   name: 'opencloseFilter',
@@ -11,7 +9,7 @@ export class OpenCloseFilter  implements PipeTransform{
    transform(park: any){
        let parkclass:String;
        if (!(park.Gesamt - park.Aktuell > 20)){
-           parkclass = 'warning';
+           parkclass = 'warningso';
        }
        if (park.Status === 'Geschlossen') {
            parkclass = 'danger';
@@ -20,6 +18,22 @@ export class OpenCloseFilter  implements PipeTransform{
    }
 }
 
+@Pipe({
+    name: 'hiddenParkHauser',
+    pure: false
+  })
+  export class HiddenParkHauser  implements PipeTransform{
+  
+     transform(park: any){
+         let hidde:boolean = false;
+         if (park == 'Waffenplatz' || park == 'City' || park == 'Galeria' || park == 'Galeria Kaufhof' ||
+             park == 'CCO Parkdeck 1' || park == 'CCO Parkdeck 2' || park == 'Hbf/ZOB' || park == 'Ratsherren' || 
+             park == 'Altes Gymnasium' || park == 'Theatergarage'  || park == 'Heiligengeist-Hoefe'  || park == 'Schlosshoefe'  ){
+             hidde=true;
+         }
+         return hidde;
+     }
+  }
 
 @Pipe({
   name: 'freiplatzeFilter',

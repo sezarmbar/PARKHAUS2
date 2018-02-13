@@ -4,7 +4,7 @@
   <li *ngIf="!menuIcon"(click)="sidenavStart.toggle()" ><a><i class="material-icons app-toolbar-menu" >menu</i></a></li>
   <li><a routerLink="/" style="font-size: 1.5em; margin-top: -6px"  >Stadt Oldenburg</a></li>
   <div class="navbar-style" *ngIf="menuSwich">
-  <li><a routerLink="/hauspark">Parkhäuser</a></li>
+  <li><a routerLink="/hauspark">Parkmöglichkeiten</a></li>
   <li><a routerLink="/hausmap" >Karte</a></li>
   <li *ngIf="isDarkTheme"><a  (click)="switchThem()"  >Tag-Modus</a></li>
   <li *ngIf="!isDarkTheme"><a  (click)="switchThem()">Nacht-Modus</a></li>
@@ -16,7 +16,7 @@
     <div  style="height:75px ;"></div>
     <div style="height: calc(100% - 60px) ;" (swipeleft)="sidenavStart.close()" align="center"> 
       <div (click)="sidenavStart.toggle()">        
-        <md-list-item> <button md-button routerLink="/hauspark">Parkhaus</button> </md-list-item>
+        <md-list-item> <button md-button routerLink="/hauspark">Parkmöglichkeiten</button> </md-list-item>
         <md-list-item> <button md-button routerLink="/hausmap">Karte</button> </md-list-item>
       </div>
         <button md-button (click)="switchThem()" *ngIf="!isDarkTheme">Nacht-Modus</button>

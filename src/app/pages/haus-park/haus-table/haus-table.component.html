@@ -10,7 +10,7 @@
         <table (swiperight)="sidenavEnd.close()">
           <tr>
             <td>
-              <h1> {{currentPark.Name | parkHausName}}</h1>Letzte Aktualisierung:{{lastTime}}</td>
+              <h1> {{currentPark.Name | parkHausName}}</h1>Letzte Aktualisierung: {{lastTime}}</td>
           </tr>
         </table>
         <table>
@@ -61,25 +61,41 @@
         </td>
       </tr>
       <tr>
-        <td>Letzte Aktualisierung:{{lastTime}}</td>
+        <td>Letzte Aktualisierung: {{lastTime}}</td>
       </tr>
+      <tr>
+          <td class="infofortable text-center">Klicken Sie auf den Namen für weitere Details</td>
+        </tr>
     </table>
 
-    <div class="infofortable">Klicken Sie auf den Namen des Parkhauses für weitere Details</div>
+    
 
 
     <table class="dataTable">
       <thead>
-        <tr>
-          <th>Parkhaus-Name</th>
+        <tr class="table-line">
+          <th>Name</th>
           <th>Freie Plätze</th>
           <th>Trend</th>
           <th>Status</th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+            <th colspan="4" >Parkhäus</th>
+        </tr>
         <tr *ngFor="let park of Parkhaus" (click)="addresService.setParkHausName(park.Name);onOpenSidenavEnd(park);showPark(park);"
-          [hidden]="park.Name=='Ratsherren'|| park.Name=='Altes Gymnasium'" [ngClass]="park | opencloseFilter">
+          [hidden]="park.Name=='Ratsherren'|| park.Name=='Altes Gymnasium' || park.Name=='Pferdemarkt'|| park.Name=='Theaterwall' "   [ngClass]="park | opencloseFilter">
+          <td>{{park.Name | parkHausName}} </td>
+          <td [ngClass]="park.Gesamt-park.Aktuell | freiplatzeFilter">{{park.Gesamt-park.Aktuell | FreiPlatz}}</td>
+          <td> <img src="./assets/img/pfeil-{{park.Trend}}.gif" height="15" width="15" /></td>
+          <td [ngClass]="park.Status | statusFilter ">{{park.Status | statusNameFilter}}</td>
+        </tr>
+        <tr>
+            <th colspan="4" >Parkplätze</th>
+        </tr>
+        <tr *ngFor="let park of Parkhaus" (click)="addresService.setParkHausName(park.Name);onOpenSidenavEnd(park);showPark(park);"
+          [hidden]="park.Name | hiddenParkHauser" [ngClass]="park | opencloseFilter">
           <td>{{park.Name | parkHausName}} </td>
           <td [ngClass]="park.Gesamt-park.Aktuell | freiplatzeFilter">{{park.Gesamt-park.Aktuell | FreiPlatz}}</td>
           <td> <img src="./assets/img/pfeil-{{park.Trend}}.gif" height="15" width="15" /></td>

@@ -20,11 +20,17 @@
         border: mat-color($primary);
     }
     .infofortable{
-        color:mat-color($primary);
+        color:mat-color($warn);
+    }
+    .parktype{
+        background-color:mat-color($accent);
+    }
+    .table-line{
+        border-bottom: 1px solid mat-color($primary,100)
     }
     
-    .warning {
-        background-color: mat-color($primary,50);
+    .warningso {
+        background-color: mat-color($primary,100);
 
         color: black;
     }

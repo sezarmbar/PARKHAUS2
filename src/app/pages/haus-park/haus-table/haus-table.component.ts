@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MdSidenav, MdTabGroup } from "@angular/material";
-import { SliderComponent } from '../../../share/slider';
 import { ParkingsService, addresShared } from '../../../service';
+
+import { Observable } from 'rxjs/Rx';
+import { Router } from '@angular/router';
 import { SideMapComponent } from '../side-map';
+import { SliderComponent } from '../../../share/slider';
 
 @Component({
   selector: 'app-haus-table',
@@ -42,7 +43,7 @@ export class HausTableComponent implements OnInit {
     this.service.getParks().subscribe(
       (parkings) => {
         this.Parkhaus = parkings.Daten.Parkhaus;
-        this.lastTime = parkings.Daten.Zeitstempel;
+        this.lastTime = (parkings.Daten.Zeitstempel).split(' ').join(' -');
       });
   }
   closeSidenave() {
