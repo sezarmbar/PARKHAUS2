@@ -43,7 +43,7 @@ export class HausTableComponent implements OnInit {
     this.service.getParks().subscribe(
       (parkings) => {
         this.Parkhaus = parkings.Daten.Parkhaus;
-        this.lastTime = (parkings.Daten.Zeitstempel).split(' ').join(' -');
+        this.lastTime = (parkings.Daten.Zeitstempel).split(' ').join(' - ');
       });
   }
   closeSidenave() {

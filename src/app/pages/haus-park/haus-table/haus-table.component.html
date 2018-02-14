@@ -82,7 +82,7 @@
       </thead>
       <tbody>
         <tr>
-            <th colspan="4" >Parkhäus</th>
+            <th colspan="4" >Parkhäuser</th>
         </tr>
         <tr *ngFor="let park of Parkhaus" (click)="addresService.setParkHausName(park.Name);onOpenSidenavEnd(park);showPark(park);"
           [hidden]="park.Name=='Ratsherren'|| park.Name=='Altes Gymnasium' || park.Name=='Pferdemarkt'|| park.Name=='Theaterwall' "   [ngClass]="park | opencloseFilter">
