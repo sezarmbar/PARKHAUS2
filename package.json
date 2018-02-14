@@ -8,7 +8,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "hashing":"ng build --prod --aot --output-hashing",
+    "extract":"ng xi18n --outputPath=src/locale",
+    "start:en": "ng serve --aot --i18nFile=src/locale/messages-en.xlf --i18nFormat=xlf --locale=en"
   },
   "private": true,
   "dependencies": {
