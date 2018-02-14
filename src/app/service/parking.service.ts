@@ -1,11 +1,17 @@
-import { Injectable, OnInit } from '@angular/core';
-import { Http, Headers, Response, URLSearchParams } from '@angular/http';
-// import {Observable} from "rxjs/Rx";
 import 'rxjs/Rx';
-// import { ReplaySubject } from 'rxjs';
+
+import { Headers, Http, Response, URLSearchParams } from '@angular/http';
+import { Injectable, OnInit } from '@angular/core';
+import { Markers, Strassen } from './data/index';
+
 import { Observable } from 'rxjs/Observable';
 
-import { Markers, Strassen } from './index';
+// import {Observable} from "rxjs/Rx";
+
+// import { ReplaySubject } from 'rxjs';
+
+
+
 
 declare var xml2json: any;
 
