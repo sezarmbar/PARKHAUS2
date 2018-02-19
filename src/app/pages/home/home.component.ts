@@ -1,5 +1,5 @@
 import {Component, Optional, ViewChild, ViewContainerRef} from '@angular/core';
-import {MdDialog, MdDialogRef, MdSnackBar , MdSidenav} from '@angular/material';
+import {MatDialog, MatDialogRef, MatSnackBar , MatSidenav} from '@angular/material';
 
 declare  var window:any;
 @Component({
@@ -9,7 +9,7 @@ declare  var window:any;
 })
 export class HomeComponent {
 
- @ViewChild('sidenavEnd') sidenavEnd: MdSidenav; 
+ @ViewChild('sidenavEnd') sidenavEnd: MatSidenav; 
  public isDarkTheme: boolean = false;
  public lastDialogResult: string;
  public sidenavOpen:boolean = false;
@@ -23,7 +23,7 @@ export class HomeComponent {
 
   progress: number = 0;
 
-  constructor(private _dialog: MdDialog, private _snackbar: MdSnackBar) {
+  constructor(private _dialog: MatDialog, private _snackbar: MatSnackBar) {
     
     // Update the value for the progress-bar on an interval.
     setInterval(() => {
@@ -69,9 +69,9 @@ export class HomeComponent {
         <input #dialogInput>
       </label>
     </p>
-    <p> <button md-button (click)="dialogRef.close(dialogInput.value)">CLOSE</button> </p>
+    <p> <button mat-button (click)="dialogRef.close(dialogInput.value)">CLOSE</button> </p>
   `,
 })
 export class DialogContent {
-  constructor(@Optional() public dialogRef: MdDialogRef<DialogContent>) { }
+  constructor(@Optional() public dialogRef: MatDialogRef<DialogContent>) { }
 }

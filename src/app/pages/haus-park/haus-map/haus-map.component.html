@@ -1,69 +1,69 @@
 <!--<div style="height: 60px;"></div>-->
-<md-sidenav-container class="app-haus-map-layout">
-    <md-sidenav mode="side" #sidenav>
+<mat-sidenav-container class="app-haus-map-layout">
+    <mat-sidenav mode="side" #sidenav (openedChange)="closeOpenSidenaveEvent($event)">
         <div class="sidenavPosition" align='center'>
             <h1>
                 Oldenburg
             </h1>
-            <button md-mini-fab class="btnclose" (click)="closeOpenSidenave()" *ngIf="opened">
-                <md-icon>{{btnSideNave}}</md-icon>
+            <button mat-mini-fab class="btnclose" (click)="sidenav.toggle()"  *ngIf="opened">
+                <mat-icon>{{btnSideNave}}</mat-icon>
             </button>
-            <!--<button md-raised-button routerLink="." (click)="clearDirection()" class="tthem-color" >Reset Directions</button>-->
-            <button md-raised-button routerLink="." (click)="carePositsion()" class="tthem-color" *ngIf="!(addresService.autoPosition.autoPoLat)">Mein Auto Position</button>
-            <button md-raised-button routerLink="." (click)="toAuto()" color="primary" *ngIf="(addresService.autoPosition.autoPoLat)">Zum Auto</button>
-            <button md-raised-button routerLink="." (click)="resetPos()" class="tthem-color" *ngIf="(addresService.autoPosition.autoPoLat)">Reset Mein Auto Position</button>
+            <!--<button mat-raised-button routerLink="." (click)="clearDirection()" class="tthem-color" >Reset Directions</button>-->
+            <button mat-raised-button routerLink="." (click)="carePositsion()" class="tthem-color" *ngIf="!(addresService.autoPosition.autoPoLat)">Mein Auto Position</button>
+            <button mat-raised-button routerLink="." (click)="toAuto()" color="primary" *ngIf="(addresService.autoPosition.autoPoLat)">Zum Auto</button>
+            <button mat-raised-button routerLink="." (click)="resetPos()" class="tthem-color" *ngIf="(addresService.autoPosition.autoPoLat)">Reset Mein Auto Position</button>
             
             
         </div>
         <div id="right-panel" class="flexcroll" #planRoutMap></div>
-    </md-sidenav>
-    <md-sidenav mode="side" #sidenavEnd align="end">
+    </mat-sidenav>
+    <mat-sidenav (add)="closeOpenSidenaveEvent($event)"  mode="side" #sidenavEnd align="end">
         <div class="sideEnd-layout" align='center' (swiperight)="closeOpenSidenaveEnd()">
             <h1>
                 Oldenburg
             </h1>
-            <md-list>
-                <md-list-item>                    
-                    <md-checkbox class="example-margin" [(ngModel)]="parksFBehindertesShow" (change)="chckeMrkerGroup()">
+            <mat-list>
+                <mat-list-item>                    
+                    <mat-checkbox class="example-margin" [(ngModel)]="parksFBehindertesShow" (change)="chckeMrkerGroup()">
                         <img src="http://gis4oldenburg.oldenburg.de/mandant/musterstadt_oldenburg/images/poi/1398877145.jpg" width="24" height="30">                        
-                        Parkplätze für Behinderte</md-checkbox>
-                </md-list-item>
-                <md-list-item>
-                    <md-checkbox class="example-margin" [(ngModel)]="freiParkPlatzShow"(change)="chckeMrkerGroup()">
+                        Parkplätze für Behinderte</mat-checkbox>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-checkbox class="example-margin" [(ngModel)]="freiParkPlatzShow"(change)="chckeMrkerGroup()">
                         <img src="http://gis4oldenburg.oldenburg.de/mandant/musterstadt_oldenburg/images/poi/2.gif" width="24" height="24">
-                        Parkplätze kostenfrei</md-checkbox>
-                </md-list-item>
-                <md-list-item>
-                    <md-checkbox class="example-margin" [(ngModel)]="parkPlatzShow"(change)="chckeMrkerGroup()">
+                        Parkplätze kostenfrei</mat-checkbox>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-checkbox class="example-margin" [(ngModel)]="parkPlatzShow"(change)="chckeMrkerGroup()">
                         <img src="http://gis4oldenburg.oldenburg.de/mandant/musterstadt_oldenburg/images/poi/2.gif" width="24" height="24">
-                        Parkplätze </md-checkbox>
-                </md-list-item>
-                <md-list-item>
-                    <md-checkbox class="example-margin" [(ngModel)]="ParkHauseShow"(change)="chckeMrkerGroup()">
+                        Parkplätze </mat-checkbox>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-checkbox class="example-margin" [(ngModel)]="ParkHauseShow"(change)="chckeMrkerGroup()">
                         <img src="http://gis4oldenburg.oldenburg.de/mandant/musterstadt_oldenburg/images/poi/1.gif" width="24" height="24">
-                        Parkhäuser </md-checkbox>
-                </md-list-item>
-                <!-- <md-list-item>
-                    <md-checkbox class="example-margin" [(ngModel)]="strassensperrungShow"(change)="chckeMrkerGroup()">
+                        Parkhäuser </mat-checkbox>
+                </mat-list-item>
+                <!-- <mat-list-item>
+                    <mat-checkbox class="example-margin" [(ngModel)]="strassensperrungShow"(change)="chckeMrkerGroup()">
                         <img src="./assets/sperrung.jpg" width="24" height="24">
-                        Straßensperrung </md-checkbox>
-                </md-list-item>
-                <md-list-item>
-                    <md-checkbox class="example-margin" [(ngModel)]="grosseUmleitungenShow"(change)="chckeMrkerGroup()">
+                        Straßensperrung </mat-checkbox>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-checkbox class="example-margin" [(ngModel)]="grosseUmleitungenShow"(change)="chckeMrkerGroup()">
                         <img src="./assets/umleit.png" width="24" height="24">
-                        Große Umleitungen  </md-checkbox>
-                </md-list-item> -->
-            </md-list>
+                        Große Umleitungen  </mat-checkbox>
+                </mat-list-item> -->
+            </mat-list>
         </div>
-        <button md-mini-fab class="btncloseEnd" (click)="closeOpenSidenaveEnd()" *ngIf="openedEnd">
-            <md-icon>{{btnSideNaveEnd}}</md-icon>
+        <button mat-mini-fab class="btncloseEnd" (click)="closeOpenSidenaveEnd()" *ngIf="openedEnd">
+            <mat-icon>{{btnSideNaveEnd}}</mat-icon>
         </button>
-    </md-sidenav>
-    <button md-mini-fab class="btnOpen" (click)="closeOpenSidenave()" *ngIf="!opened">
-        <md-icon>{{btnSideNave}}</md-icon>
+    </mat-sidenav>
+    <button mat-mini-fab class="btnOpen" (click)="sidenav.toggle()"  *ngIf="!opened">
+        <mat-icon>{{btnSideNave}}</mat-icon>
     </button>
-    <button md-mini-fab class="btnOpenEnd" (click)="closeOpenSidenaveEnd()"  *ngIf="openedEnd">
-        <md-icon>{{btnSideNaveEnd}}</md-icon>
+    <button mat-mini-fab class="btnOpenEnd" (click)="sidenav.toggle()"  *ngIf="openedEnd">
+        <mat-icon>{{btnSideNaveEnd}}</mat-icon>
     </button>
     <!--Map-->
     <agm-map class="sebm-google-map-map" [latitude]="oldenburgLatLng.lat" [longitude]="oldenburgLatLng.lng" [zoom]="zoom" [styles]="styleArray"
@@ -76,7 +76,7 @@
                 (markerClick)="getInfoMarker(pFB.id,infowindow,pFB.ukat)">
                 <agm-info-window #infowindow >
                     <div [innerHTML]="infoMarker"></div>
-                    <button md-raised-button (click)="toCurrentMarker(pFB)">Fahrren</button>
+                    <button mat-raised-button (click)="toCurrentMarker(pFB)">Fahrren</button>
                     <p></p>
                     
                 </agm-info-window>
@@ -88,7 +88,7 @@
                 (markerClick)="getInfoMarker(fPP.id,infowindow,fPP.ukat)">
                 <agm-info-window #infowindow >
                     <div [innerHTML]="infoMarker"></div>
-                    <button md-raised-button (click)="toCurrentMarker(fPP)">Fahrren</button>
+                    <button mat-raised-button (click)="toCurrentMarker(fPP)">Fahrren</button>
                     <p></p>
                 </agm-info-window>
             </agm-marker>
@@ -99,7 +99,7 @@
                 (markerClick)="getInfoMarker(pP.id,infowindow,pP.ukat)">
                 <agm-info-window #infowindow >
                     <div [innerHTML]="infoMarker"></div>
-                    <button md-raised-button (click)="toCurrentMarker(pP)">Fahrren</button>
+                    <button mat-raised-button (click)="toCurrentMarker(pP)">Fahrren</button>
                     <p></p>                    
                 </agm-info-window>
             </agm-marker>
@@ -110,7 +110,7 @@
                 (markerClick)="getInfoMarker(pH.id,infowindow,pH.ukat)">
                 <agm-info-window #infowindow >
                     <div [innerHTML]="infoMarker"></div>
-                    <button md-raised-button (click)="toCurrentMarker(pH)">Fahrren</button>
+                    <button mat-raised-button (click)="toCurrentMarker(pH)">Fahrren</button>
                     <p></p>
                 </agm-info-window>
             </agm-marker>
@@ -127,4 +127,4 @@
         <sebm-google-map-directions [origin]="origin" [destination]="destination" [directionsDisplay]="directionsDisplay" [elPlanRout]="elPlanRout"
             [infoMarker]="infoMarker"></sebm-google-map-directions>
     </agm-map>
-</md-sidenav-container>
+</mat-sidenav-container>

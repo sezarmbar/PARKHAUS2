@@ -1,5 +1,5 @@
 import {Component, Optional, ViewChild, ViewContainerRef} from '@angular/core';
-import {MdDialog, MdDialogRef, MdSnackBar , MdSidenav} from '@angular/material';
+import {MatDialog, MatDialogRef, MatSnackBar , MatSidenav} from '@angular/material';
 
 declare  var window:any;
 

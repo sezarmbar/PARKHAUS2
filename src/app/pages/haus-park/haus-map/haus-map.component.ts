@@ -1,5 +1,5 @@
 import { Component, ViewChild, ViewContainerRef, ElementRef, OnInit } from '@angular/core';
-import { MdSidenav, MdDialog, MdDialogConfig } from "@angular/material";
+import { MatSidenav, MatDialog, MatDialogConfig } from "@angular/material";
 import { MapsAPILoader, AgmInfoWindow } from '@agm/core';
 
 import { ParkingsService, addresShared, ADDRESES } from '../../../service';
@@ -15,8 +15,8 @@ declare var Audio: any;
   styleUrls: ['./haus-map.component.scss']
 })
 export class HausMapComponent implements OnInit {
-  @ViewChild('sidenav') sidenav: MdSidenav;
-  @ViewChild('sidenavEnd') sidenavEnd: MdSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav;
+  @ViewChild('sidenavEnd') sidenavEnd: MatSidenav;
   @ViewChild(DirectionsMapDirective) directionRender;
   @ViewChild('planRoutMap') elPlanRout: ElementRef;
   public showLeftSide:boolean = false;
@@ -57,6 +57,7 @@ export class HausMapComponent implements OnInit {
   public lastclickedMarker: any;
   public currentMarkerId: any;
   public lastUkat: number;
+  public sideClosOpen: boolean;
   origin:any;
   isClicked: boolean;
   lastClicked: AgmInfoWindow;
@@ -142,13 +143,16 @@ export class HausMapComponent implements OnInit {
     this.destination.lng = Number(this.addresService.autoPosition.autoPoLng);
     this.directionRender.renderDirection('WALKING');
   }
+  closeOpenSidenaveEvent(event){
+    console.log("event")
+  }
   closeOpenSidenave() {
-    if (this.sidenav._opened === true) {
+    if (this.sideClosOpen === true) {
       this.opened = false;
       this.sidenav.close();
       this.btnSideNave = 'chevron_right';
     }
-    if (this.sidenav._isClosed === true) {
+    if (this.sideClosOpen === false) {
       this.opened = true;
       this.sidenav.open();
       this.btnSideNave = 'chevron_left';
@@ -156,12 +160,12 @@ export class HausMapComponent implements OnInit {
   }
 
   closeOpenSidenaveEnd() {
-    if (this.sidenavEnd._opened === true) {
+    if (this.sideClosOpen === true) {
       this.openedEnd = false;
       this.sidenavEnd.close();
       this.btnSideNaveEnd = 'chevron_left';
     }
-    if (this.sidenavEnd._isClosed === true) {
+    if (this.sideClosOpen === false) {
       this.openedEnd = true;
       this.sidenavEnd.open();
       this.btnSideNaveEnd = 'chevron_right';

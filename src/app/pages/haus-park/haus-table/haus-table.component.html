@@ -1,12 +1,12 @@
-<md-sidenav-container class="app-haus-table-layout">
-  <md-sidenav #sidenavEnd mode="over" class="app-sidenav" tabindex="-1" align="end" (close)="onCloseSidenavEnd()">
-    <button md-mini-fab class="btnclose" (click)="closeSidenave()">
-                <md-icon style="padding-left: 0px">chevron_right</md-icon>
+<mat-sidenav-container class="app-haus-table-layout">
+  <mat-sidenav #sidenavEnd mode="over" class="app-sidenav" tabindex="-1" align="end" (close)="onCloseSidenavEnd()">
+    <button mat-mini-fab class="btnclose" (click)="closeSidenave()">
+                <mat-icon style="padding-left: 0px">chevron_right</mat-icon>
             </button>
-    <md-tab-group #tabsEnd ([selectedIndex])="selectedIndex" (selectChange)="mapShow()">
-      <!--<md-tab-group #tabsEnd (selectChange)="onSelectChange($event)" [selectedIndex]="selectedIndex">-->
+    <mat-tab-group #tabsEnd ([selectedIndex])="selectedIndex" (selectChange)="mapShow()">
+      <!--<mat-tab-group #tabsEnd (selectChange)="onSelectChange($event)" [selectedIndex]="selectedIndex">-->
 
-      <md-tab label="Info">
+      <mat-tab label="Info">
         <table (swiperight)="sidenavEnd.close()">
           <tr>
             <td>
@@ -34,22 +34,24 @@
 
         <div style="height: calc(100vh - 620px);" (swiperight)="sidenavEnd.close()">
         </div>
-      </md-tab>
+      </mat-tab>
 
-      <md-tab label="Karte">
+      <mat-tab label="Karte">
         <div (swiperight)="sidenavEnd.close()" align="center">
           <h2> {{currentPark.Name | parkHausName}}</h2>
         </div>
         <div (swiperight)="sidenavEnd.close()">
+       
+          <div id="right-panel" class="flexcroll" #planRout></div>
           <div routerLink="/hausmap">
             <side-map *ngIf="sideMapShow" [parkNane]="currentParkName" [elPlanRout]='elPlanRout'></side-map>
           </div>
-          <div id="right-panel" class="flexcroll" #planRout></div>
         </div>
-      </md-tab>
+      </mat-tab>
 
-    </md-tab-group>
-  </md-sidenav>
+    </mat-tab-group>
+  </mat-sidenav>
+  <mat-sidenav-content>
   <div class="app-haus-table-content">
 
     <table class="text-center dataHeaderTable">
@@ -105,4 +107,5 @@
     </table>
   </div>
   <div class="heightfix"></div>
-</md-sidenav-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>

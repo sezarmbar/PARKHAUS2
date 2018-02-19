@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MdSidenav, MdTabGroup } from "@angular/material";
+import { MatSidenav, MatTabGroup } from "@angular/material";
 import { ParkingsService, addresShared } from '../../../service';
 
 import { Observable } from 'rxjs/Rx';
@@ -13,8 +13,8 @@ import { SliderComponent } from '../../../share/slider';
   styleUrls: ['./haus-table.component.scss']
 })
 export class HausTableComponent implements OnInit {
-  @ViewChild('tabsEnd') tabEnd: MdTabGroup;
-  @ViewChild('sidenavEnd') sidenav: MdSidenav;
+  @ViewChild('tabsEnd') tabEnd: MatTabGroup;
+  @ViewChild('sidenavEnd') sidenav: MatSidenav;
   @ViewChild('planRout') elPlanRout: ElementRef;
   @ViewChild(SideMapComponent) sideMap;
   @ViewChild(SliderComponent) sliderChild;
@@ -30,6 +30,7 @@ export class HausTableComponent implements OnInit {
   // public Gesamt;
   // public Name;
   // public Status;
+  events = [];
   constructor(public service: ParkingsService, public addresService: addresShared, public router: Router) { }
 
   ngOnInit() {

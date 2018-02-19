@@ -57,14 +57,14 @@
 //   justify-content: center;
   
 // }
-// .app-haus-table-content md-card {
+// .app-haus-table-content mat-card {
 //   margin: 10px;
 // }
 // .app-sidenav {
 //   padding: 0px;
 //   min-width: 320px !important;
 // }
-.md-tab-lable-haus{
+.mat-tab-lable-haus{
 width: calc(100% - 10px);    
 }
   .app-haus-table-layout{
@@ -83,7 +83,8 @@ width: calc(100% - 10px);
 }
 .flexcroll{ overflow-y: scroll;
             width: 320px; 
-            height: calc(100vh - 435px);
+            // height: calc(100vh - 435px);
+            // height: calc(100vh - 435px) ;
            }
 .flexcroll::-webkit-scrollbar {
     width: 6px;

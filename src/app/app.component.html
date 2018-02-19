@@ -1,7 +1,7 @@
 <div (window:resize)="onResize($event)">
 
 <ul class="ulmenu">
-  <li *ngIf="!menuIcon"(click)="sidenavStart.toggle()" ><a><i class="material-icons app-toolbar-menu" >menu</i></a></li>
+  <li *ngIf="!menuIcon" (click)="sidenavStart.toggle()" ><a><i class="material-icons app-toolbar-menu" >menu</i></a></li>
   <li><a routerLink="/" style="font-size: 1.5em; margin-top: -6px"  >Stadt Oldenburg</a></li>
   <div class="navbar-style" *ngIf="menuSwich">
   <li><a routerLink="/hauspark">Parkmöglichkeiten</a></li>
@@ -11,25 +11,25 @@
   </div>
 </ul>
 
-  <md-sidenav-container class="app-layout"  >
-    <md-sidenav #sidenavStart  class="app-sidenav" mode="over"  tabindex="-1" align="start" >
+  <mat-sidenav-container class="app-layout"  >
+    <mat-sidenav #sidenavStart  class="app-sidenav" mode="over"  tabindex="-1" align="start" >
     <div  style="height:75px ;"></div>
     <div style="height: calc(100% - 60px) ;" (swipeleft)="sidenavStart.close()" align="center"> 
       <div (click)="sidenavStart.toggle()">        
-        <md-list-item> <button md-button routerLink="/hauspark">Parkmöglichkeiten</button> </md-list-item>
-        <md-list-item> <button md-button routerLink="/hausmap">Karte</button> </md-list-item>
+        <mat-list-item> <button mat-button routerLink="/hauspark">Parkmöglichkeiten</button> </mat-list-item>
+        <mat-list-item> <button mat-button routerLink="/hausmap">Karte</button> </mat-list-item>
       </div>
-        <button md-button (click)="switchThem()" *ngIf="!isDarkTheme">Nacht-Modus</button>
-        <button md-button (click)="switchThem()" *ngIf="isDarkTheme">Tag-Modus</button>
+        <button mat-button (click)="switchThem()" *ngIf="!isDarkTheme">Nacht-Modus</button>
+        <button mat-button (click)="switchThem()" *ngIf="isDarkTheme">Tag-Modus</button>
       </div>
-    </md-sidenav>
+    </mat-sidenav>
    
 
     <div class="app-main-content">
       <router-outlet></router-outlet>
     </div>
 
-  </md-sidenav-container>
+  </mat-sidenav-container>
 
 
 </div>

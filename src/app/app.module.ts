@@ -9,8 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
 import { AgmCoreModule } from '@agm/core';
-import { MdButtonModule, MdInputModule, MdCheckboxModule, MdSidenavModule, MdMenuModule, MdChipsModule,
-   MdProgressBarModule, MdTabsModule, MdIconModule, MdListModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatCheckboxModule, MatSidenavModule, MatMenuModule, MatChipsModule,
+   MatProgressBarModule, MatTabsModule, MatIconModule, MatListModule } from '@angular/material';
 
 
 // service
@@ -47,7 +47,7 @@ import { HausTableComponent, HausParkComponent, HausMapComponent, DirectionsMapD
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MdButtonModule, MdCheckboxModule, MdSidenavModule, MdChipsModule, MdInputModule, MdProgressBarModule, MdMenuModule, MdTabsModule, MdIconModule, MdListModule,
+    MatButtonModule, MatCheckboxModule, MatSidenavModule, MatChipsModule, MatInputModule, MatProgressBarModule, MatMenuModule, MatTabsModule, MatIconModule, MatListModule,
     ServiceAppRoutingModule,
     ParkTablePipe,
     serivceModul,

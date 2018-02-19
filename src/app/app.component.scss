@@ -14,7 +14,7 @@
   }
 }
 
-md-sidenav-container.m2app-dark {
+mat-sidenav-container.m2app-dark {
       background-color: #585858;
 }
 .app-main-content-div{
@@ -26,7 +26,7 @@ md-sidenav-container.m2app-dark {
   
 }
 
-.app-content md-card {
+.app-content mat-card {
   margin: 10px;
 }
 .mat-toolbar {
@@ -43,7 +43,7 @@ md-sidenav-container.m2app-dark {
   min-width: 200px !important;
 }
 
-.app-content md-checkbox {
+.app-content mat-checkbox {
   margin: 10px;
 }
 

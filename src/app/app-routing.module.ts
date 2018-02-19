@@ -9,7 +9,7 @@ import { HausParkComponent, HausMapComponent, HausTableComponent } from './pages
 
 
 const routes: Routes = [
-    {path: '', component: HausTableComponent},
+    {path: '', redirectTo: 'hauspark', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
     {path: 'hauspark', component: HausTableComponent},
     {path: 'hausmap', component: HausMapComponent},
