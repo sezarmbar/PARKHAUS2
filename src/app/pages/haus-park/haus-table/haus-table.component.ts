@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MdSidenav, MdTabGroup } from "@angular/material";
+import { MdSidenav, MdTabGroup } from '@angular/material';
 import { ParkingsService, addresShared } from '../../../service';
 
 import { Observable } from 'rxjs/Rx';
@@ -18,11 +18,11 @@ export class HausTableComponent implements OnInit {
   @ViewChild('planRout') elPlanRout: ElementRef;
   @ViewChild(SideMapComponent) sideMap;
   @ViewChild(SliderComponent) sliderChild;
-  public sideMapShow: boolean = true;
-  public slideInit: boolean = false;
+  public sideMapShow = true;
+  public slideInit = false;
   public Parkhaus: any;
   public lastTime: any;
-  public currentPark :any = {Gesamt:0,Aktuell:0,Name:'',Status:''};
+  public currentPark: any = { Gesamt: 0, Aktuell: 0, Name: '', Status: '' };
   public selectedIndex;
   public currentParkName: any;
   public subscription;
